@@ -1,7 +1,9 @@
 {
-  "/page": "app/page.js",
-  "/cases/page": "app/cases/page.js",
-  "/contact/page": "app/contact/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
   "/about/page": "app/about/page.js",
-  "/login/page": "app/login/page.js"
+  "/cases/page": "app/cases/page.js",
+  "/cases/bautista/page": "app/cases/bautista/page.js",
+  "/page": "app/page.js",
+  "/cases/pauline/page": "app/cases/pauline/page.js"
 }

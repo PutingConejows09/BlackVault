@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Users, Heart, Gamepad2, BookOpen, Shield, Sparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
 
 function AboutContent() {
+  const router = useRouter();
+
   const features = [
     {
       icon: Gamepad2,
@@ -51,6 +54,10 @@ function AboutContent() {
     }
   ];
 
+  const handleStartInvestigating = () => {
+    router.push("/cases");
+  };
+
   return (
     <div className="relative min-h-screen w-full text-white overflow-hidden">
       {/* Background overlay */}
@@ -59,7 +66,7 @@ function AboutContent() {
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-crime-yellow/5 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-32 h-32 bg-red-900/30 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -71,7 +78,7 @@ function AboutContent() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-crime-red/5 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-40 h-40 bg-red-900/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.4, 0.2],
@@ -99,16 +106,16 @@ function AboutContent() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-block mb-4"
           >
-            <Users className="w-16 h-16 sm:w-20 sm:h-20 text-crime-yellow mx-auto" />
+            <Users className="w-16 h-16 sm:w-20 sm:h-20 text-red-500 mx-auto" />
           </motion.div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-widest uppercase text-crime-yellow mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-widest uppercase text-red-500 mb-4">
             About Us
           </h1>
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="h-1 bg-gradient-to-r from-transparent via-crime-yellow to-transparent max-w-md mx-auto"
+            className="h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent max-w-md mx-auto"
           />
         </motion.div>
 
@@ -125,7 +132,7 @@ function AboutContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              We are a <span className="text-crime-yellow font-semibold">passionate team of storytellers, game developers, and mystery enthusiasts</span> based in the Philippines, dedicated to bringing Filipino-inspired crime stories to life through immersive and thought-provoking gameplay.
+              We are a <span className="text-red-500 font-semibold">passionate team of storytellers, game developers, and mystery enthusiasts</span> based in the Philippines, dedicated to bringing Filipino-inspired crime stories to life through immersive and thought-provoking gameplay.
             </motion.p>
 
             <motion.p
@@ -133,7 +140,7 @@ function AboutContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              Our detective case game is <span className="text-crime-yellow font-semibold">the first of its kind in the Philippines</span>—a thrilling fusion of mystery, culture, and investigation inspired by real Filipino crimes and legends, <span className="text-crime-red font-semibold">yet entirely fictional</span>.
+              Our detective case game is <span className="text-red-500 font-semibold">the first of its kind in the Philippines</span>—a thrilling fusion of mystery, culture, and investigation inspired by real Filipino crimes and legends, <span className="text-red-400 font-semibold">yet entirely fictional</span>.
             </motion.p>
 
             <motion.p
@@ -141,7 +148,7 @@ function AboutContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
             >
-              Every case, clue, and twist is carefully crafted to reflect the depth of Filipino society—its secrets, untold stories, and resilience—while drawing players into a world where <span className="text-crime-yellow font-semibold">every detail matters and every choice could reveal the truth</span>.
+              Every case, clue, and twist is carefully crafted to reflect the depth of Filipino society—its secrets, untold stories, and resilience—while drawing players into a world where <span className="text-red-500 font-semibold">every detail matters and every choice could reveal the truth</span>.
             </motion.p>
 
             <motion.p
@@ -149,7 +156,7 @@ function AboutContent() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 1.1 }}
             >
-              We are committed to giving our very best in everything we do—from the writing to the design—to deliver not just a game, but <span className="text-crime-yellow font-semibold">an experience that challenges your mind, sharpens your instincts, and immerses you in the heart of Filipino crime-solving</span> like never before.
+              We are committed to giving our very best in everything we do—from the writing to the design—to deliver not just a game, but <span className="text-red-500 font-semibold">an experience that challenges your mind, sharpens your instincts, and immerses you in the heart of Filipino crime-solving</span> like never before.
             </motion.p>
           </div>
         </motion.div>
@@ -165,13 +172,13 @@ function AboutContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 * index }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-gray-700 hover:border-crime-yellow transition-all duration-300"
+                className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-gray-700 hover:border-red-500 transition-all duration-300"
               >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Icon className="w-12 h-12 text-crime-yellow mb-4" />
+                  <Icon className="w-12 h-12 text-red-500 mb-4" />
                 </motion.div>
                 <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">
                   {feature.title}
@@ -191,7 +198,7 @@ function AboutContent() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-10 border border-gray-700 mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-crime-yellow mb-8 text-center uppercase tracking-wider">
+          <h2 className="text-2xl sm:text-3xl font-bold text-red-500 mb-8 text-center uppercase tracking-wider">
             Our Core Values
           </h2>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -202,11 +209,11 @@ function AboutContent() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.7 + (0.1 * index) }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-crime-yellow transition-all duration-300"
+                className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-red-500 transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-3">
                   <span className="text-4xl">{value.emoji}</span>
-                  <h3 className="text-xl font-bold text-crime-yellow uppercase tracking-wide">
+                  <h3 className="text-xl font-bold text-red-500 uppercase tracking-wide">
                     {value.title}
                   </h3>
                 </div>
@@ -223,16 +230,16 @@ function AboutContent() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="bg-crime-red/10 backdrop-blur-md rounded-xl p-6 sm:p-8 border border-crime-red/30"
+          className="bg-red-900/10 backdrop-blur-md rounded-xl p-6 sm:p-8 border border-red-900/30"
         >
           <div className="flex items-start gap-4">
-            <Shield className="w-8 h-8 text-crime-red flex-shrink-0 mt-1" />
+            <Shield className="w-8 h-8 text-red-500 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="text-xl font-bold text-crime-red mb-3 uppercase tracking-wide">
+              <h3 className="text-xl font-bold text-red-500 mb-3 uppercase tracking-wide">
                 Important Disclaimer
               </h3>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                <span className="font-semibold text-white">This game is a work of fiction.</span> Names, characters, businesses, places, events, and incidents are either the products of the creators' imagination or are used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is <span className="font-semibold text-crime-red">purely coincidental</span>.
+                <span className="font-semibold text-white">This game is a work of fiction.</span> Names, characters, businesses, places, events, and incidents are either the products of the creators' imagination or are used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is <span className="font-semibold text-red-500">purely coincidental</span>.
               </p>
             </div>
           </div>
@@ -259,9 +266,10 @@ function AboutContent() {
             Ready to solve the mystery?
           </motion.p>
           <motion.button
+            onClick={handleStartInvestigating}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-crime-yellow hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(250,204,21,0.5)] uppercase tracking-wider"
+            className="bg-red-900 hover:bg-red-800 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,0,0,0.5)] uppercase tracking-wider border-2 border-red-700"
           >
             Start Investigating
           </motion.button>

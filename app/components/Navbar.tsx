@@ -1,116 +1,116 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Briefcase, Phone, Info, LogOut } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { isAuthenticated, logout } = useAuth();
+  const pathname = usePathname();
+  const router = useRouter();
+  const { user, logout } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const protectedNavigation = [
-    { href: "/about", label: "ABOUT US", icon: Info },
-    { href: "/cases", label: "CASES", icon: Briefcase },
-    { href: "/contact", label: "CONTACT", icon: Phone },
+  const handleLogout = () => {
+    logout();
+    router.push("/login");
+  };
+
+  const navLinks = [
+    { href: "/cases", label: "Cases" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <nav className="bg-black/80 backdrop-blur-lg fixed w-full top-0 z-50 border-b border-yellow-400/20 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-red-900/50">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo/Brand */}
-          <Link href="/" className="group">
-            <h1 className="text-white font-bold text-xs sm:text-sm tracking-widest flex items-center gap-2">
-              <span className="text-yellow-400 text-lg">🔍</span>
-              <span className="group-hover:text-yellow-400 transition">
-                WELCOME, INVESTIGATORS!
-              </span>
-            </h1>
+          {/* Logo */}
+          <Link href="/cases" className="flex items-center">
+            <div className="text-xl md:text-2xl font-bold text-red-600">BLACK VAULT</div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {isAuthenticated && protectedNavigation.map((item) => (
+          <div className="hidden md:flex items-center space-x-1">
+            {navLinks.map((link) => (
               <Link
-                key={item.href}
-                href={item.href}
-                className="text-gray-300 hover:text-yellow-400 transition text-sm font-medium tracking-wide"
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  pathname === link.href
+                    ? "bg-red-900/50 text-white border border-red-700"
+                    : "text-gray-300 hover:bg-red-900/30 hover:text-white"
+                }`}
               >
-                {item.label}
+                {link.label}
               </Link>
             ))}
-
-            {isAuthenticated ? (
-              <button
-                onClick={logout}
-                className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 transition text-sm font-medium"
-                suppressHydrationWarning
-              >
-                <LogOut size={18} />
-                <span>LOGOUT</span>
-              </button>
-            ) : (
-              <Link
-                href="/login"
-                className="text-gray-300 hover:text-yellow-400 transition text-sm font-medium border border-white/30 px-4 py-2 rounded hover:border-yellow-400"
-              >
-                LOG IN
-              </Link>
-            )}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Desktop User Info & Logout */}
+          <div className="hidden md:flex items-center space-x-3">
+            <div className="text-sm text-gray-300">
+              <span className="text-red-500">Investigator:</span> {user?.username || "Guest"}
+            </div>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-900/50 border border-red-700 text-white rounded-lg hover:bg-red-800 transition-all text-sm font-medium"
+            >
+              Logout
+            </button>
+          </div>
+
+          {/* Mobile Hamburger Button */}
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-white p-2 hover:text-yellow-400 transition"
-            suppressHydrationWarning
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-white hover:bg-red-900/30 rounded-lg transition-all"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-yellow-400/20">
-          <div className="px-4 pt-2 pb-4 space-y-3">
-            {isAuthenticated && protectedNavigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center space-x-3 text-gray-300 hover:text-yellow-400 transition py-3 border-b border-gray-800/30"
-                onClick={() => setMenuOpen(false)}
-              >
-                <item.icon size={20} />
-                <span className="tracking-wide">{item.label}</span>
-              </Link>
-            ))}
-
-            {isAuthenticated ? (
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-red-900/50 py-4">
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                    pathname === link.href
+                      ? "bg-red-900/50 text-white border border-red-700"
+                      : "text-gray-300 hover:bg-red-900/30 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
+              <div className="px-4 py-3 text-sm text-gray-300 border-t border-red-900/30 mt-2">
+                <span className="text-red-500">Investigator:</span> {user?.username || "Guest"}
+              </div>
+              
               <button
-                onClick={() => {
-                  logout();
-                  setMenuOpen(false);
-                }}
-                className="flex items-center space-x-3 text-gray-300 hover:text-yellow-400 transition py-3 w-full"
-                suppressHydrationWarning
+                onClick={handleLogout}
+                className="mx-4 py-3 bg-red-900/50 border border-red-700 text-white rounded-lg hover:bg-red-800 transition-all text-sm font-medium"
               >
-                <LogOut size={20} />
-                <span className="tracking-wide">LOGOUT</span>
+                Logout
               </button>
-            ) : (
-              <Link
-                href="/login"
-                className="flex items-center space-x-3 text-gray-300 hover:text-yellow-400 transition py-3"
-                onClick={() => setMenuOpen(false)}
-              >
-                <span className="tracking-wide">LOG IN</span>
-              </Link>
-            )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }

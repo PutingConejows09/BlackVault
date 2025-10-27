@@ -1,39 +1,56 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+"use client";
+
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import GlobalBackgroundMusic from "./components/GlobalBackgroundMusic";
 import { AuthProvider } from "./context/AuthContext";
+import Navbar from "./components/Navbar";
+import { usePathname } from "next/navigation";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const showNavbar = pathname !== "/" && pathname !== "/login";
 
-export const metadata: Metadata = {
-  title: "Black Vault Investigations",
-  description: "Professional Investigation Services",
-};
+  return (
+    <>
+      {/* Global Background GIF */}
+      <div className="fixed inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/ABOUT US/about-us-bg.gif')",
+            opacity: 0.8,
+          }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+
+      {/* Global Background Music */}
+      <GlobalBackgroundMusic />
+
+      {/* Show Navbar on all pages except home and login */}
+      {showNavbar && <Navbar />}
+
+      {/* Main Content */}
+      <div className={`relative z-10 ${showNavbar ? "pt-16" : ""}`}>
+        {children}
+      </div>
+    </>
+  );
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
-      >
+      <body className={inter.className}>
         <AuthProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <LayoutContent>{children}</LayoutContent>
         </AuthProvider>
       </body>
     </html>
