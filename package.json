@@ -1,0 +1,27 @@
+{
+  "name": "investigators-case-file",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "autoprefixer": "10.4.16",
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.548.0",
+    "next": "15.5.6",
+    "postcss": "8.4.31",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
+    "tailwindcss": "3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.9.1",
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}
