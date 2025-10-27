@@ -28,7 +28,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/cases" className="flex items-center">
-            <div className="text-xl md:text-2xl font-bold text-red-600">BLACK VAULT</div>
+            <div className="text-xl md:text-2xl font-bold text-red-600">
+              BLACK VAULT
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +53,8 @@ export default function Navbar() {
           {/* Desktop User Info & Logout */}
           <div className="hidden md:flex items-center space-x-3">
             <div className="text-sm text-gray-300">
-              <span className="text-red-500">Investigator:</span> {user?.username || "Guest"}
+              <span className="text-red-500">Investigator:</span>{" "}
+              {user?.name || "Guest"}
             </div>
             <button
               onClick={handleLogout}
@@ -96,11 +99,12 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              
+
               <div className="px-4 py-3 text-sm text-gray-300 border-t border-red-900/30 mt-2">
-                <span className="text-red-500">Investigator:</span> {user?.username || "Guest"}
+                <span className="text-red-500">Investigator:</span>{" "}
+                {user?.name || "Guest"}
               </div>
-              
+
               <button
                 onClick={handleLogout}
                 className="mx-4 py-3 bg-red-900/50 border border-red-700 text-white rounded-lg hover:bg-red-800 transition-all text-sm font-medium"
