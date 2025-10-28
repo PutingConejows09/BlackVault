@@ -23,12 +23,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = (username: string, password: string): boolean => {
     // Validate credentials
-    if (username === "admin" && password === "password") {
+    if (username === "BlackVault_Entry" && password === "Badge-BV!") {
       setUser({
         id: "1",
-        email: "admin@investigators.com",
-        name: "Administrator",
-        role: "admin"
+        email: "blackvault@investigators.com",
+        name: "Black Vault Investigator",
+        role: "investigator"
       });
       return true;
     }

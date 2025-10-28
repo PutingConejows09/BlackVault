@@ -2,15 +2,30 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, Home, AlertTriangle, CheckCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, Home, AlertTriangle, CheckCircle, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function BautistaCasePage() {
   const router = useRouter();
+  const [accessGranted, setAccessGranted] = useState(false);
+  const [accessCode, setAccessCode] = useState("");
+  const [accessError, setAccessError] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [suspectAnswer, setSuspectAnswer] = useState("");
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+
+  const CORRECT_ACCESS_CODE = "INV-BAUTISTA-X9";
+
+  const handleAccessSubmit = () => {
+    if (accessCode.trim().toUpperCase() === CORRECT_ACCESS_CODE) {
+      setAccessGranted(true);
+      setAccessError(false);
+    } else {
+      setAccessError(true);
+      setTimeout(() => setAccessError(false), 3000);
+    }
+  };
 
   const caseNotes = [
     {
@@ -113,6 +128,103 @@ export default function BautistaCasePage() {
     router.push("/cases");
   };
 
+  // ACCESS CODE SCREEN
+  if (!accessGranted) {
+    return (
+      <div className="relative min-h-screen w-full bg-black text-white overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/ABOUT US/BLOODY BG.PNG')`,
+            filter: 'brightness(0.3) blur(8px)'
+          }}
+        />
+
+        {/* Home Button */}
+        <button
+          onClick={handleHome}
+          className="absolute top-6 right-6 text-white hover:text-crime-yellow transition z-50 text-sm uppercase tracking-wider font-semibold"
+        >
+          HOME
+        </button>
+
+        {/* Access Code Form */}
+        <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-md w-full"
+          >
+            <div className="bg-gradient-to-b from-red-900/90 to-black/90 backdrop-blur-sm border border-red-700 rounded-lg p-8 shadow-2xl">
+              {/* Lock Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="bg-red-900/50 p-4 rounded-full">
+                  <Lock className="w-12 h-12 text-crime-yellow" />
+                </div>
+              </div>
+
+              {/* Header */}
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-white mb-2 uppercase tracking-wider">
+                  ACCESS RESTRICTED
+                </h1>
+                <p className="text-gray-300 uppercase tracking-wider text-sm">
+                  VERIFICATION REQUIRED
+                </p>
+              </div>
+
+              {/* Input Field */}
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  value={accessCode}
+                  onChange={(e) => setAccessCode(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleAccessSubmit()}
+                  placeholder="Enter Code Access"
+                  className="w-full bg-black/50 text-white border border-red-700/50 px-4 py-3 rounded-lg text-center font-mono uppercase tracking-wider focus:outline-none focus:border-crime-yellow focus:ring-1 focus:ring-crime-yellow"
+                />
+
+                {/* Error Message */}
+                <AnimatePresence>
+                  {accessError && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="bg-red-500/20 border border-red-500 text-red-400 px-4 py-3 rounded-lg flex items-center gap-2"
+                    >
+                      <AlertTriangle className="w-5 h-5" />
+                      <span className="font-semibold text-sm">Invalid access code. Please try again.</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Submit Button */}
+                <button
+                  onClick={handleAccessSubmit}
+                  className="w-full bg-crime-yellow hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg uppercase tracking-wider transition-all duration-300"
+                >
+                  PROCEED
+                </button>
+              </div>
+
+              {/* Footer Note */}
+              <div className="mt-6 text-center">
+                <p className="text-gray-500 text-xs uppercase tracking-wider">
+                  CASE FILE: ARTURO BAUTISTA
+                </p>
+                <p className="text-gray-600 text-xs mt-1">
+                  BX25-02
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
   // Success Page
   if (showSuccess && currentPage === caseNotes.length - 1) {
     return (
@@ -182,39 +294,61 @@ export default function BautistaCasePage() {
               </h2>
               <div className="space-y-3 text-gray-300">
                 <p><span className="font-bold text-white">Age:</span> 42 years old</p>
-                <p><span className="font-bold text-white">Relationship:</span> Brother of Arturo Bautista</p>
-                <p><span className="font-bold text-white">Occupation:</span> Business Partner & Co-owner of family land</p>
-                <p><span className="font-bold text-white">Status:</span> Under investigation for fratricide</p>
+                <p><span className="font-bold text-white">Relationship:</span> Son of Arturo Bautista</p>
+                <p><span className="font-bold text-white">Occupation:</span> Executive Director of Bautista Coconut Plantation</p>
+                <p><span className="font-bold text-white">Status:</span> Under investigation</p>
+              </div>
+            </div>
+
+            {/* The Incident */}
+            <div className="bg-crime-red/10 border border-crime-red/30 rounded-lg p-6">
+              <h2 className="text-2xl font-bold text-crime-red mb-4 uppercase tracking-wide">
+                📋 The Incident
+              </h2>
+              <div className="space-y-3 text-gray-300">
+                <p><span className="font-bold text-white">Victim:</span> Arturo Bautista</p>
+                <p><span className="font-bold text-white">Date:</span> May 18, 2018</p>
+                <p><span className="font-bold text-white">Location:</span> Bautista Mansion</p>
+                <p><span className="font-bold text-white">Reported Cause:</span> Blunt Force Trauma</p>
+                <p><span className="font-bold text-white">Actual Finding:</span> Foul Play Suspected</p>
               </div>
             </div>
 
             {/* Key Evidence */}
             <div className="bg-crime-red/10 border border-crime-red/30 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-crime-red mb-4 uppercase tracking-wide">
-                📋 Key Evidence
+                🔍 Key Evidence Against Ramon Bautista
               </h2>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-crime-red mt-1">▸</span>
-                  <span><span className="font-bold text-white">Financial Records:</span> Ramon had mounting debts (₱85M) and stood to inherit Arturo's share of the family estate</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-crime-red mt-1">▸</span>
-                  <span><span className="font-bold text-white">Witness Accounts:</span> Multiple witnesses reported heated arguments between the brothers in the weeks before Arturo's death</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-crime-red mt-1">▸</span>
-                  <span><span className="font-bold text-white">Timeline:</span> Ramon had no verifiable alibi for the time of death and was last seen near Arturo's residence</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-crime-red mt-1">▸</span>
-                  <span><span className="font-bold text-white">Physical Evidence:</span> Forensic analysis linked Ramon to the scene through fiber evidence and fingerprints on key items</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-crime-red mt-1">▸</span>
-                  <span><span className="font-bold text-white">Motive Documentation:</span> Email correspondence showed Ramon desperately trying to convince Arturo to sell the family land</span>
-                </li>
-              </ul>
+              
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-bold text-white text-lg mb-2">Medical Evidence — Blood Type Incompatibility</h3>
+                  <ul className="space-y-2 text-gray-300 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-crime-red mt-1">•</span>
+                      <span>Medical records confirmed Arturo's blood type and Ramon's were biologically incompatible for a parent–child relationship.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-crime-red mt-1">•</span>
+                      <span>Confirms Ramon is not Arturo's biological son, supporting the emotional motive of identity crisis and betrayal.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-white text-lg mb-2">Personal Item — The Photograph with Hidden Message</h3>
+                  <ul className="space-y-2 text-gray-300 ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-crime-red mt-1">•</span>
+                      <span>A photo of three-year-old Ramon with his late mother included a farewell poem, where the first letters of each line spelled "NOT HIS."</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-crime-red mt-1">•</span>
+                      <span>Reveals his mother's secret warning that Arturo was not his real father—a clue tied to Ramon's emotional unraveling and motive.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             {/* Motive */}
@@ -223,20 +357,20 @@ export default function BautistaCasePage() {
                 💰 Established Motive
               </h2>
               <p className="text-gray-300 leading-relaxed">
-                Ramon Bautista was facing financial ruin from failed business ventures and mounting gambling debts totaling ₱85 million. Arturo had consistently refused to sell their jointly-owned family land, which was worth over ₱200 million. With Arturo gone, Ramon would inherit his brother's share and have full control to sell the property. The pressure from loan sharks and the imminent foreclosure of Ramon's other assets created a perfect storm of desperation. Family members reported that Ramon had become increasingly volatile and unstable in recent months, often making threatening remarks about "solving the problem once and for all."
+                Ramon's motive was rooted in betrayal and loss of identity, not greed. After discovering through medical reports that he was not Don Arturo's biological son, Ramon's world collapsed. Years of loyalty and sacrifice suddenly felt meaningless. The hidden message in his late mother's photo—spelling out "NOT HIS"—confirmed the painful truth, intensifying his anger and despair. Journal entries revealed his emotional breakdown and feelings of rejection. When he confronted Arturo again that evening, the confrontation turned violent. Overcome by rage and humiliation, Ramon lashed out, striking Arturo in a fit of uncontrolled emotion. His motive was a psychological and emotional eruption born from betrayal, identity loss, and years of suppressed resentment.
               </p>
             </div>
 
-            {/* Conclusion */}
+            {/* Investigator's Note */}
             <div className="bg-white/5 border border-gray-700 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-crime-yellow mb-4 uppercase tracking-wide">
-                ⚖️ Investigator's Conclusion
+                ⚖️ Investigator's Note
               </h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                Based on forensic evidence, financial analysis, witness statements, and timeline reconstruction, there is overwhelming evidence that <span className="text-crime-red font-bold">Ramon Bautista murdered his brother, Arturo Bautista</span>, to gain full control of the family estate and resolve his crippling financial crisis. The crime was premeditated, driven by greed and desperation, and executed with calculated precision.
+                Now it's time to reveal why it happened, how it unfolded, and when it all began. Proceed to the Final Investigation Report inside the case file.
               </p>
               <p className="text-gray-400 text-sm italic">
-                Case forwarded to National Bureau of Investigation. Arrest warrant issued. Investigation status: CLOSED - SUSPECT IDENTIFIED AND CHARGED.
+                Investigation status: CLOSED - SUSPECT IDENTIFIED
               </p>
             </div>
 
