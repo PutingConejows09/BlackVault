@@ -2,6 +2,6 @@
   "/page": "app/page.js",
   "/login/page": "app/login/page.js",
   "/cases/page": "app/cases/page.js",
-  "/cases/pauline/page": "app/cases/pauline/page.js",
-  "/cases/bautista/page": "app/cases/bautista/page.js"
+  "/cases/bautista/page": "app/cases/bautista/page.js",
+  "/cases/pauline/page": "app/cases/pauline/page.js"
 }

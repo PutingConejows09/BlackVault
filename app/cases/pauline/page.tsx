@@ -30,58 +30,58 @@ export default function PaulineCasePage() {
   const caseNotes = [
     {
       id: "A",
-      title: "FIRST IMPRESSIONS",
-      subtitle: "1. THE BEACH PARTY",
-      content: "It started as a typical college beach trip. But something that night went terribly wrong. What details from the party might hold the key?",
+      title: "FIRST DOUBTS",
+      subtitle: "1. REPORT OR RUMOR?",
+      content: "The report says drowning, but the first talk around the resort hinted at something else. Which do you think is closer to the truth?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "B",
-      title: "FIRST IMPRESSIONS",
-      subtitle: "2. THE MISSING HOURS",
-      content: "Pauline was last seen at midnight. Her body was found at dawn. What happened in those missing hours?",
+      title: "FIRST DOUBTS",
+      subtitle: "2. LIFE WITHOUT PAULINE",
+      content: "With Pauline gone, someone ended up benefiting. Who do you think is closer to the truth?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "C",
-      title: "FIRST IMPRESSIONS",
-      subtitle: "3. SECRET RELATIONSHIPS",
-      content: "Not everything in college organizations is as it seems. What hidden connections might explain what happened?",
+      title: "FIRST DOUBTS",
+      subtitle: "3. STRANGE MOVES",
+      content: "That night, some people acted differently. Whose words or actions don't sit right with you, and why?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "D",
-      title: "HIDDEN CONNECTIONS",
-      subtitle: "4. FINANCIAL PRESSURE",
-      content: "Money problems can push people to desperate measures. Who might have been under financial stress?",
+      title: "DEEPER CONFLICTS",
+      subtitle: "4. SCATTERED TRUTH",
+      content: "The story of that night isn't complete. How do you explain the parts that don't seem to fit together?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "E",
-      title: "HIDDEN CONNECTIONS",
-      subtitle: "5. THE POWERBANK",
-      content: "A seemingly ordinary powerbank was found at the scene. What secrets might it contain?",
+      title: "DEEPER CONFLICTS",
+      subtitle: "5. FEAR OR GUILT",
+      content: "Some people look uneasy after the incident. Was it because they were scared of what happened, or hiding something they did?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "F",
-      title: "WHAT LIES WITHIN",
-      subtitle: "6. EXPOSURE THREAT",
-      content: "Fear of exposure can be a powerful motive. Who had the most to lose if their secrets came out?",
+      title: "FINAL TENSIONS",
+      subtitle: "6. HIDDEN LAYERS",
+      content: "That night, not everything was in the open. What deeper reason might explain the way people acted toward Pauline?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "G",
-      title: "WHAT LIES WITHIN",
-      subtitle: "7. THE TREASURER'S RECORDS",
-      content: "Financial records don't lie. What discrepancies might point to wrongdoing?",
+      title: "FINAL TENSIONS",
+      subtitle: "7. LAST PIECE",
+      content: "Pieces of the night remain untold. What important detail do you think is missing, and why it have been left out?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
     {
       id: "H",
       title: "THE VERDICT",
-      subtitle: "FINAL JUDGMENT",
-      content: "You've reviewed all the evidence. Who killed Pauline Diaz? Enter the full name of the suspect you believe is responsible.",
+      subtitle: "FINAL DEBATE",
+      content: "All evidence has been laid out. It's time to weigh in the facts and deliver your verdict. Who do you hold accountable for Pauline's fate? Present your suspect, defend your reasoning with the reports at hand, and confront opposing views. When you're certain, type your answer.",
       isVerdict: true
     }
   ];

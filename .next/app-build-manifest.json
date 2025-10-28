@@ -21,20 +21,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/cases/page.js"
     ],
-    "/about/page": [
+    "/cases/bautista/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/about/page.js"
+      "static/chunks/app/cases/bautista/page.js"
     ],
     "/cases/pauline/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/cases/pauline/page.js"
-    ],
-    "/cases/bautista/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/cases/bautista/page.js"
     ]
   }
 }
