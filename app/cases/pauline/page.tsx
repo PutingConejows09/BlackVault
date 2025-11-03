@@ -89,10 +89,10 @@ export default function PaulineCasePage() {
   const validateSuspect = (answer: string) => {
     const cleanAnswer = answer.trim().toLowerCase();
     const validAnswers = [
-      "marco diaz",
+      "marco ortiz",
       "marco",
-      "diaz marco",
-      "diaz, marco"
+      "ortiz marco",
+      "ortiz, marco"
     ];
     
     return validAnswers.some(valid => cleanAnswer === valid);
