@@ -1,7 +1,3 @@
-```
-
----
-
 ## 🎯 **SUMMARY - ALL FILES COMPLETE**
 
 Here's what you created:
@@ -28,3 +24,7 @@ Here's what you created:
 ```
 Email: admin@blackvault.com
 Password: investigator2025
+
+GMail
+email: inv.blackvault@gmail.com
+password: Conejo.Rabbit123!
