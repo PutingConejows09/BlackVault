@@ -290,7 +290,7 @@ export default function PaulineCasePage() {
             {/* Suspect Profile */}
             <div className="bg-crime-red/10 border border-crime-red/30 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-crime-red mb-4 uppercase tracking-wide">
-                🎯 PRIMARY SUSPECT: MARCO DIAZ
+                🎯 PRIMARY SUSPECT: MARCO ORTIZ
               </h2>
               <div className="space-y-3 text-gray-300">
                 <p><span className="font-bold text-white">Age:</span> 21 years old</p>
@@ -317,7 +317,7 @@ export default function PaulineCasePage() {
             {/* Key Evidence */}
             <div className="bg-crime-red/10 border border-crime-red/30 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-crime-red mb-4 uppercase tracking-wide">
-                🔍 Key Evidence Against Marco Diaz
+                🔍 Key Evidence Against Marco Ortiz
               </h2>
               
               <div className="space-y-6">
