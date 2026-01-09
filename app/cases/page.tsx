@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 export default function CasesPage() {
   const cases = [
     {
+      id: "esmeralda",
+      name: "Esmeralda Rojas",
+      title: "The Starlet in Shadow",
+      caseNumber: "1B5XC-Y09",
+      status: "Active Investigation",
+      description: "Reopened case of suspicious death of rising actress.",
+      image: "/Cases/esmeralda.jpg",
+      priority: "SEVERE",
+      isLocked: false,
+    },
+    {
       id: "pauline",
       name: "Pauline Diaz",
       title: "Last Trip for Pauline",
