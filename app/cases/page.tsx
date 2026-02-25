@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 export default function CasesPage() {
   const cases = [
     {
+      id: "andrea",
+      name: "Andrea Morales",
+      title: "Love, Unmatched",
+      caseNumber: "GW81-JQ004",
+      status: "Active Investigation",
+      description: "Reopened case of suspicious death of rising actress.",
+      image: "/Cases/andrea-morales.jpg",
+      priority: "EXTREMELY HIGH",
+      isLocked: false,
+    },
+    {
       id: "esmeralda",
       name: "Esmeralda Rojas",
       title: "The Starlet in Shadow",
