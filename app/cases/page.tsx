@@ -11,7 +11,7 @@ export default function CasesPage() {
       title: "Love, Unmatched",
       caseNumber: "GW81-JQ004",
       status: "Active Investigation",
-      description: "Reopened case of suspicious death of rising actress.",
+      description: "Dating App Mystery.",
       image: "/Cases/andrea-morales.jpg",
       priority: "EXTREMELY HIGH",
       isLocked: false,
