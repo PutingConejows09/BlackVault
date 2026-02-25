@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft, Home, AlertTriangle, CheckCircle, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function EsmeraldaCasePage() {
+export default function AndreaCasePage() {
   const router = useRouter();
   const [accessGranted, setAccessGranted] = useState(false);
   const [accessCode, setAccessCode] = useState("");
@@ -95,9 +95,16 @@ export default function EsmeraldaCasePage() {
       id: "J",
       title: "WHEN STORIES COLLIDE",
       subtitle: "10. Selective Truth",
-      content: "Each suspect admits to part of the story — a meeting, a message, a feeling, a secret. None provide a complete account of the entire night. Which shared detail between the suspects doesn’t feel like a coincidence?",
+      content: "Each suspect admits to part of the story — a meeting, a message, a feeling, a secret. None provide a complete account of the entire night. Which shared detail between the suspects doesn't feel like a coincidence?",
       bgImage: "/Cases/case-note-bg.jpg"
     },
+    {
+      id: "K",
+      title: "THE VERDICT",
+      subtitle: "FINAL DEBATE",
+      content: "All evidence has been laid out. It's time to weigh the facts and deliver your verdict. Who do you hold accountable for Arturo's fate? Present your suspect, defend your reasoning with the reports at hand, and confront opposing views. When you're certain, type your answer.",
+      isVerdict: true
+    }
   ];
 
   const validateSuspect = (answer: string) => {
@@ -297,7 +304,7 @@ export default function EsmeraldaCasePage() {
               <h1 className="text-4xl md:text-5xl font-bold text-crime-yellow mb-2 uppercase tracking-widest">
                 Final Investigation Report
               </h1>
-              <p className="text-xl text-gray-400 font-mono">CASE NO.: 1B5XC-Y09</p>
+              <p className="text-xl text-gray-400 font-mono">CASE NO.: GW81-JQ004</p>
               <p className="text-lg text-crime-red font-semibold">CLASSIFIED: HIGHEST PRIORITY</p>
             </div>
 
@@ -407,7 +414,7 @@ export default function EsmeraldaCasePage() {
                 💰 Established Motive
               </h2>
               <p className="text-gray-300 leading-relaxed">
-                Catalina killed Esmeralda the moment she realized she was about to lose everything. Esmeralda had already uncovered how her own mother was selling her out—using her name, her access, and her career to fund an addiction and siphon money. Heartbroken and exhausted, Esmeralda threatened to cut Catalina off permanently and leave the country, ending the lies and the leverage Catalina depended on. Panic took over. With no income, no cover, and no one left to blame, Catalina chose violence over abandonment—grabbing a rope and strangling her daughter into silence, then staging the scene to erase the truth and save herself.
+                Tristan's motive appears deeply rooted in obsession and emotional fixation on Andrea. Childhood friends with a history of intense attachment, Tristan's unresolved grief from the death of his parents left him emotionally vulnerable, creating a profound fear of losing the one person he felt connected to. Evidence such as the scrunchie found in his unit—implying he was the last person with Andrea—and the love letter falsely attributed to Ralph, reveal a disturbing pattern of possessiveness and manipulation. His identical messaging patterns with Ralph further suggest calculated control over her relationships. Altogether, these factors paint a picture of a man driven by obsession, jealousy, and a desperate need to maintain dominance over Andrea, escalating to actions with potentially lethal consequences.
               </p>
             </div>
 
