@@ -102,7 +102,7 @@ export default function AndreaCasePage() {
       id: "K",
       title: "THE VERDICT",
       subtitle: "FINAL DEBATE",
-      content: "All evidence has been laid out. It's time to weigh the facts and deliver your verdict. Who do you hold accountable for Arturo's fate? Present your suspect, defend your reasoning with the reports at hand, and confront opposing views. When you're certain, type your answer.",
+      content: "All evidence has been laid out. It's time to weigh the facts and deliver your verdict. Who do you hold accountable for Andrea's fate? Present your suspect, defend your reasoning with the reports at hand, and confront opposing views. When you're certain, type your answer.",
       isVerdict: true
     }
   ];
@@ -236,7 +236,7 @@ export default function AndreaCasePage() {
                   CASE FILE: ANDREA MORALES
                 </p>
                 <p className="text-gray-600 text-xs mt-1">
-                  BX25-02
+                  GW81-JQ004
                 </p>
               </div>
             </div>
