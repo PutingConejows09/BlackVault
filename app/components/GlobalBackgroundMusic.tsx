@@ -35,6 +35,7 @@ export default function GlobalBackgroundMusic() {
   return (
     <audio
       ref={audioRef}
+      id="global-bg-music"
       loop
       src="/login-assets/black-vault-audio.mp3"
       preload="auto"

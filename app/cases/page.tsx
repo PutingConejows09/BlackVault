@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 export default function CasesPage() {
   const cases = [
     {
+      id: "martinez",
+      name: "Martinez Family",
+      title: "Fall of the Martinez",
+      caseNumber: "S1P0-9X",
+      status: "Active Investigation",
+      description: "Family Massacre",
+      image: "/Cases/martinez.jpeg",
+      priority: "CRITICAL",
+      isLocked: false,
+    },
+    {
       id: "andrea",
       name: "Andrea Morales",
       title: "Love, Unmatched",

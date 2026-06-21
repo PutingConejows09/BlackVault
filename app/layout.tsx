@@ -3,7 +3,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GlobalBackgroundMusic from "./components/GlobalBackgroundMusic";
-import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import { usePathname } from "next/navigation";
 
@@ -49,9 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning>
-        <AuthProvider>
-          <LayoutContent>{children}</LayoutContent>
-        </AuthProvider>
+        <LayoutContent>{children}</LayoutContent>
       </body>
     </html>
   );

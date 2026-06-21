@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
 
   const handleEnter = () => {
-    router.push("/login");
+    router.push("/cases");
   };
 
   return (

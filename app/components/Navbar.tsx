@@ -1,20 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useAuth } from "../context/AuthContext";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLogout = () => {
-    logout();
-    router.push("/login");
-  };
 
   const navLinks = [
     { href: "/cases", label: "Cases" },
@@ -48,20 +40,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-          </div>
-
-          {/* Desktop User Info & Logout */}
-          <div className="hidden md:flex items-center space-x-3">
-            <div className="text-sm text-gray-300">
-              <span className="text-red-500">Investigator:</span>{" "}
-              {user?.name || "Guest"}
-            </div>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 bg-red-900/50 border border-red-700 text-white rounded-lg hover:bg-red-800 transition-all text-sm font-medium"
-            >
-              Logout
-            </button>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -99,18 +77,6 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-
-              <div className="px-4 py-3 text-sm text-gray-300 border-t border-red-900/30 mt-2">
-                <span className="text-red-500">Investigator:</span>{" "}
-                {user?.name || "Guest"}
-              </div>
-
-              <button
-                onClick={handleLogout}
-                className="mx-4 py-3 bg-red-900/50 border border-red-700 text-white rounded-lg hover:bg-red-800 transition-all text-sm font-medium"
-              >
-                Logout
-              </button>
             </div>
           </div>
         )}
