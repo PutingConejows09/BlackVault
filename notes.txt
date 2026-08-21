@@ -27,4 +27,4 @@ Password: investigator2025
 
 GMail
 email: inv.blackvault@gmail.com
-password: Conejo.Rabbit123!
+password: Conejo.Rabbit123
