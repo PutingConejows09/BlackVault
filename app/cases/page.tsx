@@ -9,7 +9,7 @@ export default function CasesPage() {
       id: "secrets1",
       name: "Anonymous Case",
       title: "Class of Secrets",
-      caseNumber: "S1P0-9X",
+      caseNumber: "XTR1-YB4",
       status: "Active Investigation",
       description: "College Anonymous Case",
       image: "/Cases/series1.jpg",
