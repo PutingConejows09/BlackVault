@@ -25,8 +25,8 @@ export default function Contact() {
                 <h3 className="text-sm font-semibold text-red-400 mb-2 uppercase tracking-wider">
                   EMAIL
                 </h3>
-                <a href="mailto:inv.blackvault@gmail.com" className="text-lg md:text-xl text-white hover:text-red-400 transition-colors break-all">
-                  inv.blackvault@gmail.com
+                <a href="mailto:investigatorscasefile.bv@gmail.com" className="text-lg md:text-xl text-white hover:text-red-400 transition-colors break-all">
+                  investigatorscasefile.bv@gmail.com
                 </a>
               </div>
             </div>
@@ -43,8 +43,8 @@ export default function Contact() {
                 <h3 className="text-sm font-semibold text-red-400 mb-2 uppercase tracking-wider">
                   PHONE
                 </h3>
-                <a href="tel:+639854032959" className="text-lg md:text-xl text-white hover:text-red-400 transition-colors">
-                  +63 985 403 2959
+                <a href="tel:+639673812079" className="text-lg md:text-xl text-white hover:text-red-400 transition-colors">
+                  +63 967 381 2079
                 </a>
               </div>
             </div>
