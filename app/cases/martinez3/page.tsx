@@ -292,7 +292,7 @@ export default function MartinezCasePage() {
               <h1 className="text-4xl md:text-5xl font-bold text-crime-yellow mb-2 uppercase tracking-widest">
                 Final Investigation Report
               </h1>
-              <p className="text-xl text-gray-400 font-mono">CASE NO.: S2WT-0V</p>
+              <p className="text-xl text-gray-400 font-mono">CASE NO.: DTS3-9LJ</p>
               <p className="text-lg text-crime-red font-semibold">CLASSIFIED: HIGHEST PRIORITY</p>
             </div>
 
