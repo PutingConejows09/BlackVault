@@ -15,7 +15,7 @@ export default function MartinezCasePage() {
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const CORRECT_ACCESS_CODE = "LQZ7-TG0";
+  const CORRECT_ACCESS_CODE = "PD-S2X4";
 
   const handleAccessSubmit = () => {
     if (accessCode.trim().toUpperCase() === CORRECT_ACCESS_CODE) {
