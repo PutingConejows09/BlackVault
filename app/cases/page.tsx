@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function CasesPage() {
   const cases = [
-  {
+   {
       id: "secrets1",
       name: "Anonymous Case",
       title: "Class of Secrets",
@@ -16,7 +16,18 @@ export default function CasesPage() {
       priority: "SERIES 1",
       isLocked: false,
     },
-      {
+    {
+      id: "secrets2",
+      name: "Anonymous Case",
+      title: "Class of Secrets",
+      caseNumber: "JS02-PX5",
+      status: "Active Investigation",
+      description: "College Anonymous Case",
+      image: "/Cases/series2.jpg",
+      priority: "SERIES 2",
+      isLocked: false,
+    },
+    {
       id: "martinez",
       name: "Martinez Family",
       title: "Fall of the Martinez",
