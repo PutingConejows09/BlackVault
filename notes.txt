@@ -17,14 +17,3 @@ Here's what you created:
 
 ### **KEPT AS-IS:**
 - `app/globals.css` - Your existing CSS file
-
----
-
-## 🔐 **LOGIN CREDENTIALS**
-```
-Email: admin@blackvault.com
-Password: investigator2025
-
-GMail
-email: inv.blackvault@gmail.com
-password: Conejo.Rabbit123
